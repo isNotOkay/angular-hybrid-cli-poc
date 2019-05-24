@@ -1,5 +1,6 @@
-import { Component, OnInit, VERSION } from '@angular/core';
-import { LogService } from './../../app-ng1/services/log-service';
+import {Component, OnInit, VERSION} from '@angular/core';
+import {LogService} from './../../app-ng1/services/log-service';
+
 // tslint:disable
 @Component({
   selector: 'ng7-test',

@@ -38,10 +38,6 @@
     "ordered-imports": false,
     // maintainability
     "eofline": false,
-    "indent": [
-      true,
-      "tabs"
-    ],
     "object-literal-sort-keys": false,
     "trailing-comma": [
       true,
