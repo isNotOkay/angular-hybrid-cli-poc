@@ -1,13 +1,25 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'ng7-textfield',
   templateUrl: './ng7-textfield.component.html',
   styleUrls: ['./ng7-textfield.component.css']
 })
-export class Ng7TextfieldComponent implements OnInit, AfterViewInit {
-  @ViewChild('textfield') textfield: ElementRef;
+export class Ng7TextfieldComponent implements OnInit, AfterViewInit, OnChanges {
+  @Input() placeholder: string;
   @Output() change: EventEmitter<any> = new EventEmitter();
+  @ViewChild('textfield') textfield: ElementRef;
 
   constructor() {
   }
@@ -20,5 +32,9 @@ export class Ng7TextfieldComponent implements OnInit, AfterViewInit {
     this.textfield.nativeElement.addEventListener('input', () => {
       this.change.emit(this.textfield.nativeElement.value);
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
   }
 }

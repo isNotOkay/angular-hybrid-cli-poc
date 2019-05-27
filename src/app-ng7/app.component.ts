@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Ng7ContentService} from './services/ng7-content-service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constrcutor() {
+  constructor(private contentService: Ng7ContentService) {
     // empty
   }
 
@@ -18,5 +19,9 @@ export class AppComponent implements OnInit {
     if (typeof change === 'string') {
       console.log(change);
     }
+  }
+
+  fireHttpRequest() {
+    this.contentService.getGoogle();
   }
 }

@@ -9,6 +9,8 @@ import {Ng7TestComponent} from './ng7-test/ng7-test.component';
 import {Ng1TestDirective} from './ng1-test-upgraded.directive';
 import {logServiceProvider} from '../upgraded-services.module.ng1';
 import {Ng7TextfieldComponent} from './ng7-textfield/ng7-textfield.component';
+import {Ng7ContentService} from './services/ng7-content-service';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -30,11 +32,13 @@ const routes: Routes = [
     Ng1TestDirective
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     UpgradeModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
+    Ng7ContentService,
     logServiceProvider,
     {provide: '$scope', useExisting: '$rootScope'}
   ],
